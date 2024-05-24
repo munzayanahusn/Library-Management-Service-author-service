@@ -11,4 +11,8 @@ export class LogsService {
     const newLog = new this.logModel({ operation, entity, entityId, timestamp: new Date() });
     return newLog.save();
   }
+
+  async findAll(): Promise<Log[]> {
+    return this.logModel.find().exec();
+  }
 }
